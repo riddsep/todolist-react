@@ -18,7 +18,7 @@ function App() {
       <main className="w-[972px] h-[636px] rounded-xl backdrop-blur-sm bg-opacity-20 10 border border-gray-100/50 grid grid-cols-[7fr_4fr] grid-rows-[59px_1fr] overflow-hidden">
         <Header todos={todos} />
         <TodoList todos={todos} setTodos={setTodos} />
-        <Sidebar />
+        <Sidebar todos={todos} setTodos={setTodos} />
       </main>
       <Footer />
     </div>
