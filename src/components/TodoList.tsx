@@ -9,6 +9,10 @@ const TodoList = () => {
     { id: 5, text: "Istirahat sejenak", isCompleted: false },
   ]);
 
+  function handleDelete(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <ul className="bg-[#0A0A0A] text-white ">
       {todos.map((todo) => (
@@ -19,9 +23,7 @@ const TodoList = () => {
           }`}
         >
           <span>{todo.text}</span>
-          <DeleteButton id={todo.id} setTodos={setTodos}>
-            X
-          </DeleteButton>
+          <DeleteButton handleDelete={() => handleDelete(todo.id)} />
         </li>
       ))}
     </ul>

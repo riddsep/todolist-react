@@ -1,10 +1,8 @@
 import { CircleX } from "lucide-react";
 
-const DeleteButton = ({ id, setTodos }) => {
+const DeleteButton = ({ handleDelete }) => {
   return (
-    <button
-      onClick={() => setTodos((prev) => prev.filter((todo) => todo.id !== id))}
-    >
+    <button onClick={handleDelete}>
       <CircleX color="#f20707" />
     </button>
   );
