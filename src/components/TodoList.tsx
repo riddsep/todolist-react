@@ -8,6 +8,7 @@ const TodoList = () => {
     { id: 4, text: "Refactor project admin panel", isCompleted: false },
     { id: 5, text: "Istirahat sejenak", isCompleted: false },
   ]);
+
   return (
     <ul className="bg-[#0A0A0A] text-white ">
       {todos.map((todo) => (
@@ -18,7 +19,9 @@ const TodoList = () => {
           }`}
         >
           <span>{todo.text}</span>
-          <DeleteButton />
+          <DeleteButton id={todo.id} setTodos={setTodos}>
+            X
+          </DeleteButton>
         </li>
       ))}
     </ul>
