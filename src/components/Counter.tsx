@@ -1,7 +1,8 @@
-const Counter = () => {
+const Counter = ({ todos }) => {
   return (
     <p className="text-white">
-      <b>0</b> / 0 todos completed
+      <b>{todos.filter((todo) => todo.isCompleted).length}</b> / {todos.length}{" "}
+      todos completed
     </p>
   );
 };

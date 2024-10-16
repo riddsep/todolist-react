@@ -1,16 +1,14 @@
 import DeleteButton from "./DeleteButton";
-import { useState } from "react";
-const TodoList = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Belajar React", isCompleted: false },
-    { id: 2, text: "Kerjakan tugas bootcamp", isCompleted: true },
-    { id: 3, text: "Baca dokumentasi JavaScript", isCompleted: false },
-    { id: 4, text: "Refactor project admin panel", isCompleted: false },
-    { id: 5, text: "Istirahat sejenak", isCompleted: false },
-  ]);
-
+const TodoList = ({ todos, setTodos }) => {
   function handleDelete(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
+  }
+  function handleDone(id) {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
   }
 
   return (
@@ -21,6 +19,7 @@ const TodoList = () => {
           className={`flex justify-between items-center px-4 h-12 cursor-pointer bg-[#212121] border-b border-gray-100/50 ${
             todo.isCompleted ? "line-through text-gray-500" : ""
           }`}
+          onClick={() => handleDone(todo.id)}
         >
           <span>{todo.text}</span>
           <DeleteButton handleDelete={() => handleDelete(todo.id)} />
