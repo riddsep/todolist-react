@@ -7,7 +7,6 @@ const AddTodoForm = ({ todos, setTodos }) => {
     text: "",
     isCompleted: false,
   });
-  console.log(todos);
 
   function handleChange(e) {
     setTodoItem((prev) => ({ ...prev, text: e.target.value }));
