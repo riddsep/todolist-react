@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useState } from "react";
 
-const AddTodoForm = ({ todos, setTodos }) => {
+const AddTodoForm = ({ setTodos }) => {
   const [todoItem, setTodoItem] = useState({
     id: crypto.randomUUID(),
     text: "",
