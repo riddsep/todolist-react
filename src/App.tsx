@@ -5,13 +5,7 @@ import Sidebar from "./components/Sidebar";
 import TodoList from "./components/TodoList";
 import { useState } from "react";
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Belajar React", isCompleted: false },
-    { id: 2, text: "Kerjakan tugas bootcamp", isCompleted: false },
-    { id: 3, text: "Baca dokumentasi JavaScript", isCompleted: false },
-    { id: 4, text: "Refactor project admin panel", isCompleted: false },
-    { id: 5, text: "Istirahat sejenak", isCompleted: false },
-  ]);
+  const [todos, setTodos] = useState([]);
   return (
     <div className="flex flex-col items-center justify-center font-sans bg-black min-h-screen">
       <BackgroundHeading />

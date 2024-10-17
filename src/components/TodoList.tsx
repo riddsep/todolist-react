@@ -12,19 +12,25 @@ const TodoList = ({ todos, setTodos }) => {
   }
 
   return (
-    <ul className="bg-[#0A0A0A] text-white ">
-      {todos.map((todo) => (
-        <li
-          key={todo.id}
-          className={`flex justify-between items-center px-4 h-12 cursor-pointer bg-[#212121] border-b border-gray-100/50 ${
-            todo.isCompleted ? "line-through text-gray-500" : ""
-          }`}
-          onClick={() => handleDone(todo.id)}
-        >
-          <span>{todo.text}</span>
-          <DeleteButton handleDelete={() => handleDelete(todo.id)} />
+    <ul className="bg-[#0A0A0A] text-white overflow-y-auto">
+      {todos.length === 0 ? (
+        <li className="flex justify-center items-center px-4 h-full cursor-pointer bg-[#212121] border-b border-gray-100/50">
+          You seem to be relaxing🤔. Want to start something?
         </li>
-      ))}
+      ) : (
+        todos.map((todo) => (
+          <li
+            key={todo.id}
+            className={`flex justify-between items-center px-4 h-12 cursor-pointer bg-[#212121] border-b border-gray-100/50 ${
+              todo.isCompleted ? "line-through text-gray-500" : ""
+            }`}
+            onClick={() => handleDone(todo.id)}
+          >
+            <span>{todo.text}</span>
+            <DeleteButton handleDelete={() => handleDelete(todo.id)} />
+          </li>
+        ))
+      )}
     </ul>
   );
 };

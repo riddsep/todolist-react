@@ -13,6 +13,8 @@ const AddTodoForm = ({ todos, setTodos }) => {
   }
   function handleSubmit(e) {
     e.preventDefault();
+    if (!todoItem.text) return;
+
     setTodos((prev) => [...prev, todoItem]);
 
     setTodoItem({
